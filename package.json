@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "This is an API Gateway to handle ALCE page",
     "main": "src/index",
-    "scripts": {},
+    "scrips": {},
     "author": "ALCE Team",
     "license": "ISC",
     "dependencies": {
