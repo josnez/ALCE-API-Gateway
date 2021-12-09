@@ -27,7 +27,7 @@ const authentication = async({request_}) => {
     
             return {userIdToken: (await response.json()).UserId};
         } catch(error) {
-            throw   new ApolloError(`Token error: ${500}: ${error}`, 500);
+            throw   new ApolloError(`Autenticacion fallida. Token error: ${500}: ${error}`, 500);
         }
     }
 };
