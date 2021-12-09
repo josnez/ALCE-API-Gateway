@@ -1,8 +1,9 @@
-const bookResolver      = require('./bookResolver')
-const exchangeResolver  = require('./exchangeResolver');
-const authResolver      = require('./authResolver');
-const lodash            = require('lodash');
+const bookResolver = require('./books_resolver')
+const exchangeResolver = require('./exchange_resolver');
+const authResolver = require('./auth_resolver');
 
-const resolvers         = lodash.merge(bookResolver, exchangeResolver, authResolver);
+const lodash = require('lodash');
 
-module.exports = resolvers;
+const resolvers = lodash.merge(bookResolver, exchangeResolver, authResolver);
+
+module.exports = resolvers

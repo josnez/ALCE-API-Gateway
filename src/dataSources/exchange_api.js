@@ -1,21 +1,22 @@
-const { RESTDataSource } = require('apollo-datasource-rest')
-const serverConfig       = require('../server')
+const { RESTDataSource } = require('apollo-datasource-rest');
+
+const serverConfig = require('../server');
 
 class ExchangeAPI extends RESTDataSource {
 
-    constructor(){
+    constructor() {
         super();
-        this.baseURL = serverConfig.ExchangeAPIurl;
+        this.baseURL = serverConfig.exchange_api_url;
     }
-
+    
     async createExchange(exchange) {
         exchange = new Object(JSON.parse(JSON.stringify(exchange)));
-        return await this.post(`/exchange`, exchange);
+        return await this.post('/exchange', exchange);
     }
 
     async createExchangeNotification(notification) {
         notification = new Object(JSON.parse(JSON.stringify(notification)));
-        return await this.post(`/exchangeNoti`, notification);
+        return await this.post('/exchangeNoti', notification);
     }
     
     async getExchange(id) {
@@ -35,4 +36,4 @@ class ExchangeAPI extends RESTDataSource {
         return await this.delete(`/exchange/${id}`);
     }
 }
-module.exports = ExchangeAPI;    
+module.exports = ExchangeAPI;
