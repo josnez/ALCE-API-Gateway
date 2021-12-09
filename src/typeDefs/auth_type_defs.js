@@ -40,15 +40,28 @@ const authTypeDefs = gql `
         postal_code: String!
         num_changed_books: Int!
     }
-    
-    type Mutation {
-        signUpUser(userInput :SignUpInput): Tokens!
-        logIn(credentials: CredentialsInput!): Tokens!
-        refreshToken(refresh: String!): Access!
+
+    input UserUpdate {
+        id: Int!
+        name: String!
+        last_name: String!
+        department: String!
+        city: String!
+        address: String!
+        address_complement: String! 
+        postal_code: String! 
     }
     
     type Query {
-        userDetailById(userId: Int!): UserDetail!
+        userDetailById(userId: Int!) : UserDetail!
+    }
+
+    type Mutation {
+        signUpUser(userInput: SignUpInput)     : Tokens!
+        logIn(credentials: CredentialsInput!)   : Tokens!
+        refreshToken(refresh: String!)          : Access!
+        updateUser(userInput: UserUpdate!)      : UserDetail!
+        deleteUsedr(userId: Int!)               : String!
     }
 `;
 module.exports = authTypeDefs;
