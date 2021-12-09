@@ -8,10 +8,10 @@ const bookResolver = {
                 return null
         },
 
-        bookByIdAplicant: async(_, { userId }, { dataSources, userIdToken }) => {
+        requestedBooksbyIdApplicant: async(_, { userId }, { dataSources, userIdToken }) => {
             userIdToken = (await dataSources.authAPI.getUser(userIdToken)).userId
             if (userId == userIdToken)
-                return await dataSources.bookAPI.bookByIdAplicant(userId)
+                return await dataSources.bookAPI.requestedBooksbyIdApplicant(userId)
             else
                 return null
         },
