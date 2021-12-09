@@ -48,7 +48,7 @@ const bookTypeDefs = gql`
     extend type Query {
         infoBookById(id: String!)      : InfoBook
         booksUserByIdOwner(id: Int!)   : [Book]
-        booksUserByIdAplicant(id: Int) : [Book]
+        requestedBooksbyIdApplicant(id: Int) : [Book]
         booksFiltered(filter: String!) : [Book]
         allBooks()                      : [Book]
     }
