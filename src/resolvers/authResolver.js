@@ -5,7 +5,7 @@ const authResolver = {
                 return dataSources.authAPI.getUser(userId);
             else
                 return null;
-        }
+        },
     },
     Mutation: {
         signUpUser: async(_, { userInput }, { dataSources }) => {

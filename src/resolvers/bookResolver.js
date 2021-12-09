@@ -1,5 +1,3 @@
-const { assertAbstractType } = require("graphql");
-
 const bookResolver = {
     Query: {
         bookByIdOwner: async(_, { userId }, { dataSources, userIdToken }) => {
@@ -39,4 +37,4 @@ const bookResolver = {
 
     }
 };
-module.exports = bookResolver;
+    module.exports = bookResolver;

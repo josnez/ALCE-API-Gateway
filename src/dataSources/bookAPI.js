@@ -1,5 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest')
-const serverConfig      = require('../server')
+const serverConfig       = require('../server')
 
 class BookAPI extends RESTDataSource {
 
@@ -37,20 +37,20 @@ class BookAPI extends RESTDataSource {
     }
 
     async createBook(book){
-        book = new Object( JSON.parse( JSON.stringify(book)));
-        return await this.post('/book', book);
+        book = new Object(JSON.parse(JSON.stringify(book)));
+        return await this.post(`/book`, book);
     }
 
     async updateBook(id){
-        return await this.put('/book/${id}', id);
+        return await this.put(`/book/${id}`, id);
     }
 
     async deleteBook(id){
-        return await this.delete('/book/{id}', id);
+        return await this.delete(`/book/{id}`, id);
     }
     
     async requestedBooksbyIdApplicant(idAplicant){
         return await this.get(`/books/getAllBooksAvailable/${idAplicant}/`);
     }
 }
-    module.exports = BooksAPI
+    module.exports = BookAPI

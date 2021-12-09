@@ -1,6 +1,6 @@
-const authTypes      = require('./authTypeDefs');
-const bookTypes      = require('./bookTypeDefs');
-const exchangeTypes  = require('./exchangeTypeDefs');
+const authTypeDefs      = require('./authTypeDefs');
+const bookTypeDefs      = require('./bookTypeDefs');
+const exchangeTypeDefs  = require('./exchangeTypeDefs');
 
-const schemasArrays = [authTypes, bookTypes, exchangeTypes];
+const schemasArrays = [authTypeDefs, bookTypeDefs, exchangeTypeDefs];
 module.exports      = schemasArrays;

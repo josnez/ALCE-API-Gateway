@@ -1,5 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest')
-const serverConfig      = require('../server')
+const serverConfig       = require('../server')
 
 class ExchangeAPI extends RESTDataSource {
 
@@ -10,12 +10,12 @@ class ExchangeAPI extends RESTDataSource {
 
     async createExchange(exchange) {
         exchange = new Object(JSON.parse(JSON.stringify(exchange)));
-        return await this.post('/exchange', exchange);
+        return await this.post(`/exchange`, exchange);
     }
 
     async createExchangeNotification(notification) {
         notification = new Object(JSON.parse(JSON.stringify(notification)));
-        return await this.post('/exchangeNoti', notification);
+        return await this.post(`/exchangeNoti`, notification);
     }
     
     async getExchange(id) {

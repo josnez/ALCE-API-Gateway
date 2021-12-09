@@ -1,33 +1,33 @@
 const {gql} = require('apollo-server');
 
-const exchangeTypes = gql `
+const exchangeTypeDefs = gql`
     type Exchange {
-        id          : String
-        idBook      : String!
-        idOwner     : String!
-        idAplicant  : String!
-        date        : String!
-        state       : String!
+        id: String
+        idBook: String!
+        idOwner: String!
+        idAplicant: String!
+        date: String!
+        state: String!
     }
 
     type ExchangeNotification {
-        id          : String
-        idExchange  : String!
-        date        : String!
-        title       : String!
-        message     : String!
+        id: String
+        idExchange: String!
+        date: String!
+        title: String!
+        message: String!
     }
 
     extend type Query {
-        exchangeById(id : String!) : Exchange!
+        exchangeById(id: String!) : Exchange!
     }
 
-    extend type Mutations {
+    extend type Mutation {
         createExchange(exchange: Exchange): Exchange!
         updateExchange(exchange: Exchange): Exchange!
         deleteExchange(exchange: Exchange): Exchange!
-        createExchangeNotification(exchangeNotification : ExchangeNotification) : ExchangeNotification
+        createExchangeNotification(exchangeNotification: ExchangeNotification) : ExchangeNotification
     }
 `;
 
-module.exports = exchangeTypes;
+module.exports = exchangeTypeDefs;

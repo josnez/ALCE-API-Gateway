@@ -4,16 +4,16 @@ const fetch            = require('node-fetch');
 
 const authentication = async({request_}) => {
     const token = request_.headers.authorization || '';
-    if (token == ''){
+    if (token == '')
         return {userIdToken: null}
-    } else {
+    else {
         try {
             let requestOptions = {
                 method   : "POST",
                 headers  : {"Content-Type" : "application/json"},
                 body     : JSON.stringify({token}),
-                redirect : "follow"
-            }
+                redirect : 'follow'
+            };
     
             let response = await fetch(
                 `${serverConfig.authApiURL}/verifyToken/`,
@@ -26,8 +26,9 @@ const authentication = async({request_}) => {
             }
     
             return {userIdToken: (await response.json()).UserId};
+
         } catch(error) {
-            throw   new ApolloError(`Token error: ${500}: ${error}`, 500);
+            throw  new ApolloError(`Token error: ${500}: ${error}`, 500);
         }
     }
 };
