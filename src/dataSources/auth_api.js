@@ -6,7 +6,7 @@ class AuthAPI extends RESTDataSource {
     
     constructor() {
         super();
-        this.baseURL = serverConfig.auth_api_url;
+        this.baseURL = serverConfig.authApiURL;
     }
     
     async createUser(user) {
@@ -20,7 +20,7 @@ class AuthAPI extends RESTDataSource {
     
     async authRequest(credentials) {
         credentials = new Object(JSON.parse(JSON.stringify(credentials)));
-        return await this.post(`/login/`, credentials);
+        return await this.post(`/logIn/`, credentials);
     }
     
     async refreshToken(token) {
