@@ -23,7 +23,7 @@ const authTypeDefs = gql `
         department: String!
         city: String!
         address: String!
-        adrress_complement: String!
+        address_complement: String!
         postal_code: String!
     }
     

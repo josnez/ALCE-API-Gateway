@@ -6,7 +6,7 @@ class ExchangeAPI extends RESTDataSource {
 
     constructor() {
         super();
-        this.baseURL = serverConfig.exchange_api_url;
+        this.baseURL = serverConfig.exchangeApiURL;
     }
     
     async createExchange(exchange) {

@@ -6,7 +6,7 @@ class BookAPI extends RESTDataSource {
 
     constructor() {
         super();
-        this.baseURL = serverConfig.book_api_url;
+        this.baseURL = serverConfig.bookApiURL;
     }
     
     async createBook(book) {
