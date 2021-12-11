@@ -29,10 +29,9 @@ const authTypeDefs = gql `
     
     type UserDetail {
         id: Int!
-        email: String!
-        password: String!
         name: String!
         last_name: String!
+        email: String!
         department: String!
         city: String!
         address: String!
@@ -42,14 +41,15 @@ const authTypeDefs = gql `
     }
 
     input UserUpdate {
-        id: Int!
-        name: String!
-        last_name: String!
-        department: String!
-        city: String!
-        address: String!
-        address_complement: String! 
-        postal_code: String! 
+        email: String
+        password: String
+        name: String
+        last_name: String
+        department: String
+        city: String
+        address: String
+        address_complement: String
+        postal_code: String
     }
     
     type Query {
@@ -60,8 +60,8 @@ const authTypeDefs = gql `
         signUpUser(userInput: SignUpInput)     : Tokens!
         logIn(credentials: CredentialsInput!)   : Tokens!
         refreshToken(refresh: String!)          : Access!
-        updateUser(userInput: UserUpdate!)      : UserDetail!
-        deleteUsedr(userId: Int!)               : String!
+        updateUser(userInput: UserUpdate)      : UserDetail
+        deleteUser(userId: Int!)               : String!
     }
 `;
 module.exports = authTypeDefs;
