@@ -1,4 +1,4 @@
-const bookResolver = require('./books_resolver')
+const bookResolver = require('./book_resolver')
 const exchangeResolver = require('./exchange_resolver');
 const authResolver = require('./auth_resolver');
 

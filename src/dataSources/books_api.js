@@ -1,28 +1,30 @@
-const { RESTDataSource } = require('apollo-datasource-rest');
-
-const serverConfig = require('../server');
+const { RESTDataSource } = require("apollo-datasource-rest");
+const serverConfig = require("../server");
 
 class BookAPI extends RESTDataSource {
+  constructor() {
+    super();
+    this.baseURL = serverConfig.bookApiURL;
+  }
 
-    constructor() {
-        super();
-        this.baseURL = serverConfig.bookApiURL;
-    }
-    
-    async createBook(book) {
-        book = new Object(JSON.parse(JSON.stringify(book)));
-        return await this.post('/book', book);
-    }
-    
-    async bookByIdOwner(idOwner) {
-        return await this.get(`/books/${idOwner}`);
-    }
+  async createBook(bookInput) {
+    bookInput = new Object(JSON.parse(JSON.stringify(bookInput)));
+    return await this.post("/book", bookInput);
+  }
 
-    async bookById(id) {
-        return await this.get(`/book/${id}`);
-    }
+  async booksByIdOwner(userId) {
+    return await this.get(`/books/${userId}`);
+  }
 
-    async getAllBooks(getAllBooks) {
+  async bookById(id) {
+    return await this.get(`/book/${id}`);
+  }
+
+  async deleteBook(bookId) {
+    return await this.delete(`/book/${bookId}`);
+  }
+
+  /* async getAllBooks(getAllBooks) {
         return await this.get(`/books`, getAllBooks);
     }
 
@@ -44,17 +46,11 @@ class BookAPI extends RESTDataSource {
 
     async getBooksAplicant(idAplicant) {
         return await this.get(`/books/allRequested/${idAplicant}`);
-    }
-
-    async deleteBook (bookId) {
-        bookId = new Object(JSON.parse(JSON.stringify({ bookId})));
-        return await this.delete(`/book/${id}`);
-    }
+    }    
 
     async updateBook(bookId) {
         bookId = new Object(JSON.parse(JSON.stringify({ bookId })));
         return await this.put(`/book/${id}`);
-    }
-
+    } */
 }
 module.exports = BookAPI;

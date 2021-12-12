@@ -1,12 +1,10 @@
 const authResolver = {
   Query: {
     userDetailById: (_, { userId }, { dataSources, userIdToken }) => {
-      console.log(userId);
       if (userId == userIdToken) {
         return dataSources.authAPI.getUser(userId);
       } else {
         console.log("Token invalido.");
-
         return null;
       }
     },
