@@ -9,6 +9,10 @@ const authTypeDefs = gql `
     type Access {
         access: String!
     }
+
+    input Refresh {
+        refresh: String!
+    }
     
     input CredentialsInput {
         email: String!
@@ -57,11 +61,11 @@ const authTypeDefs = gql `
     }
 
     type Mutation {
-        signUpUser(userInput: SignUpInput)     : Tokens!
-        logIn(credentials: CredentialsInput!)   : Tokens!
-        refreshToken(refresh: String!)          : Access!
-        updateUser(userInput: UserUpdate)      : UserDetail
-        deleteUser(userId: Int!)               : String!
+        signUpUser(userInput: SignUpInput)              : Tokens!
+        logIn(credentials: CredentialsInput!)           : Tokens!
+        refreshToken(refresh: String!)                  : Access!
+        updateUser(userId: Int!, userInput: UserUpdate!) : UserDetail!
+        deleteUser(userId: Int!)                        : String!
     }
 `;
 module.exports = authTypeDefs;

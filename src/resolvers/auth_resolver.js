@@ -3,7 +3,6 @@ const authResolver = {
     userDetailById: (_, { userId }, { dataSources, userIdToken }) => {
       console.log(userId);
       if (userId == userIdToken) {
-
         return dataSources.authAPI.getUser(userId);
       } else {
         console.log("Token invalido.");
@@ -45,6 +44,11 @@ const authResolver = {
 
     refreshToken: (_, { refresh }, { dataSources }) =>
       dataSources.authAPI.refreshToken(refresh),
+
+    updateUser: async(_, { userId, userInput }, { dataSources }) => {
+      return await dataSources.authAPI.updateUser(userId, userInput);
+    }
+      
   },
 };
 module.exports = authResolver;

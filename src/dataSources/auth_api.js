@@ -25,7 +25,7 @@ class AuthAPI extends RESTDataSource {
     
     async refreshToken(token) {
         token = new Object(JSON.parse(JSON.stringify({ refresh: token })));
-        return await this.post(`/refresh/`, token);
+        return await this.post('/refresh/', token);
     }
 
     async deleteUser (userId) {
@@ -33,9 +33,9 @@ class AuthAPI extends RESTDataSource {
         return await this.delete(`/userDelete/${userId}`);
     }
 
-    async updateUser(userId) {
-        userId = new Object(JSON.parse(JSON.stringify({ userId })));
-        return await this.put(`/userUpdate/${userId}`);
+    async updateUser(userId, userInput) {
+        //userInput = new Object(JSON.parse(JSON.stringify({ userInput })));
+        return await this.put(`/userUpdate/${userId}`, userInput);
     }
 }
 module.exports = AuthAPI;

@@ -19,7 +19,6 @@ const authentication = async ({ req }) => {
         requestOptions
       );
       if (response.status != 200) {
-        console.log(response);
         throw new ApolloError(
           `SESION INACTIVA - ${401}` + response.status,
           401
