@@ -47,10 +47,12 @@ class BookAPI extends RESTDataSource {
     async getBooksAplicant(idAplicant) {
         return await this.get(`/books/allRequested/${idAplicant}`);
     }    
+*/
+    async updateBook(bookId, bookInput) {
+      //bookInput = new Object(JSON.parse(JSON.stringify({ bookInput })));
+      //bookInput = new Object( bookInput );
 
-    async updateBook(bookId) {
-        bookId = new Object(JSON.parse(JSON.stringify({ bookId })));
-        return await this.put(`/book/${id}`);
-    } */
+      return await this.put(`/book/${bookId}`, bookInput);
+    } 
 }
 module.exports = BookAPI;

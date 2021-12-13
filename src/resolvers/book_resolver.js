@@ -25,10 +25,10 @@ const bookResolver = {
     createBook: (_, { bookInput }, { dataSources }) => 
     dataSources.bookAPI.createBook(bookInput),
     
-    editBook: async (_, { bookId }, { dataSources, userIdToken }) => {
-      userId = (await dataSources.bookAPI.bookById(bookId)).idOwner;
+    editBook: async (_, { bookId, bookInput }, { dataSources, userIdToken }) => {
+      userId = (await dataSources.bookAPI.bookById(bookId)).idOwner;      
       if (userId == userIdToken)
-        return await dataSources.bookAPI.editBook(book);
+        return await dataSources.bookAPI.updateBook(bookId, bookInput);
       else return null;
     },
 

@@ -18,16 +18,18 @@ const bookTypeDefs = gql `
     }
     
     input EditBookDetails {
-      id: String!
-      title: String!
-      author: String!
-      genre: String!
-      year: String!
-      physicalState: String!
-      edition: String!
-      language: String!
-      idAplicant: Int!
-      requested: Boolean!
+      id: String
+      title: String
+      author: String
+      genre: String
+      year: String
+      physicalState: String
+      edition: String
+      language: String
+      idAplicant: Int
+      idOwner: Int
+      requested: Boolean
+      editorial: String
     }
 
     input InputBook {
@@ -69,9 +71,9 @@ const bookTypeDefs = gql `
     }
 
     extend type Mutation {
-        editBook(bookInput: EditBookDetails!): Book!
+        editBook(bookId: String!, bookInput: EditBookDetails!): Book!
         deleteBook(bookId: String!): String!
-        createBook(bookInput: InputBook!): Book!        
+        createBook(bookInput: InputBook!): Book!  
     }
 `;
 
