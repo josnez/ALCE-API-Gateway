@@ -39,7 +39,7 @@ const bookTypeDefs = gql `
       physicalState: String!
       edition: String!
       language: String!
-      idOwner: String!
+      idOwner: Int!
       idAplicant: Int
       requested: Boolean
     }
