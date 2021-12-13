@@ -15,7 +15,9 @@ const bookResolver = {
     
     infoBookById: async (_, { bookId }, { dataSources }) => {
       return await dataSources.bookAPI.bookById(bookId);
-    }
+    },
+
+    allBooks: (_, {}, { dataSources }) => dataSources.bookAPI.getAllBooks()
   },
 
   Mutation: {

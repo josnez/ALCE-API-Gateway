@@ -61,16 +61,17 @@ const bookTypeDefs = gql `
     }
 
     extend type Query {
-        infoBookById(bookId: String!)      : Book!
-        booksByIdOwner(userId: Int!)       : [Book]
-        booksByIdAplicant(idAplicant: Int!)    : [Book]
-        booksFiltered(filter: String!) : [Book]
+        infoBookById(bookId: String!)        : Book!
+        booksByIdOwner(userId: Int!)         : [Book]
+        booksByIdAplicant(idAplicant: Int!)  : [Book]
+        booksFiltered(filter: String!)       : [Book]
+        allBooks                             : [Book]
     }
 
     extend type Mutation {
         editBook(bookInput: EditBookDetails!): Book!
         deleteBook(bookId: String!): String!
-        createBook(bookInput: InputBook!): Book!
+        createBook(bookInput: InputBook!): Book!        
     }
 `;
 

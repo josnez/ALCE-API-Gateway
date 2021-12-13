@@ -24,11 +24,11 @@ class BookAPI extends RESTDataSource {
     return await this.delete(`/book/${bookId}`);
   }
 
-  /* async getAllBooks(getAllBooks) {
-        return await this.get(`/books`, getAllBooks);
-    }
+  async getAllBooks() {
+    return await this.get(`/getAllBooks`);
+  }
 
-    async getAllBooksTittle(tittle) {
+  /*  async getAllBooksTittle(tittle) {
         return await this.get(`/books/getAllBooksAvailable/${tittle}`);
     }
 
